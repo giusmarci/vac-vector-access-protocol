@@ -1,4 +1,4 @@
-![VAC Banner](VAC%20BANNER.png)
+![VAC Banner](logo/vac-header.png)
 
 # VAC: Vector Access Protocol
 
@@ -497,3 +497,47 @@ MIT License - See LICENSE file for details
 **Built with ❤️ for the semantic web**
 
 Join the movement to make the internet understandable by AI. Start by adding VAC to your website today.
+
+---
+
+## 📁 Project Structure
+
+```
+vac-vector-access-protocol/
+├── README.md                    # This file
+├── LICENSE                      # MIT License
+├── .well-known/                 
+│   └── vectors.json            # Example implementation
+├── cli/                        # VAC CLI tool
+│   ├── index.js
+│   ├── README.md
+│   └── package.json
+├── docs/                       
+│   ├── explainer.md            # WICG proposal document
+│   ├── index.md                # Documentation home
+│   └── usage.md                # Integration guide
+├── examples/                   # Example implementations
+│   ├── minimal-site/
+│   └── advanced-site/
+├── spec/                       
+│   └── vectors.schema.json     # JSON Schema definition
+└── logo/                       
+    └── vac-header.png          # Project branding
+```
+
+## 🎯 For WICG Submission
+
+- **[Protocol Explainer](docs/explainer.md)** - Full technical proposal document
+- **[JSON Schema](spec/vectors.schema.json)** - Formal specification
+- **[Examples](examples/)** - Reference implementations
+
+## 🤝 Call for Contributors
+
+Seeking community input to refine and standardize VAC:
+
+- **Protocol Design**: Help shape the specification
+- **Implementations**: Build tools and integrations
+- **Use Cases**: Share your deployment experiences
+- **Documentation**: Improve guides and examples
+
+Join the discussion at [GitHub Discussions](https://github.com/giusmarci/vac-vector-access-protocol/discussions)

@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/giusmarci/vac-vector-access-protocol/spec/vectors.schema.json",
+  "title": "VAC Vector File Schema",
+  "description": "JSON Schema for .well-known/vectors.json files following the Vector Access Protocol (VAC)",
+  "type": "object",
+  "required": ["version", "site", "model", "updatedAt"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "VAC protocol version",
+      "pattern": "^\\d+\\.\\d+$",
+      "examples": ["0.1"]
+    },
+    "site": {
+      "type": "string",
+      "format": "uri",
+      "description": "Base URL of the website",
+      "examples": ["https://example.com"]
+    },
+    "model": {
+      "type": "string",
+      "description": "Identifier of the embedding model used",
+      "examples": ["nomic-embed-text", "text-embedding-ada-002", "embed-english-v3.0"]
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of last update"
+    },
+    "totalChunks": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total number of chunks (required for single-file format)"
+    },
+    "chunks": {
+      "type": "array",
+      "description": "Array of content chunks with embeddings (for single-file format)",
+      "items": {
+        "$ref": "#/definitions/chunk"
+      }
+    },
+    "chunked": {
+      "type": "boolean",
+      "description": "Indicates if content is split across multiple files",
+      "default": false
+    },
+    "files": {
+      "type": "array",
+      "description": "File references for chunked format",
+      "items": {
+        "$ref": "#/definitions/fileReference"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata about the vector set",
+      "properties": {
+        "dimension": {
+          "type": "integer",
+          "description": "Dimension of the embedding vectors"
+        },
+        "language": {
+          "type": "string",
+          "description": "Primary language (ISO 639-1 code)"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "All languages present in the content"
+        },
+        "lastCrawled": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the content was last crawled"
+        },
+        "generator": {
+          "type": "string",
+          "description": "Tool used to generate the vectors"
+        }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "required": ["chunks", "totalChunks"],
+      "properties": {
+        "chunked": {
+          "const": false
+        }
+      }
+    },
+    {
+      "required": ["files", "chunked"],
+      "properties": {
+        "chunked": {
+          "const": true
+        },
+        "chunks": {
+          "not": {}
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "chunk": {
+      "type": "object",
+      "required": ["url", "content", "vector"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the chunk"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Source URL of the content"
+        },
+        "content": {
+          "type": "string",
+          "description": "The text content that was embedded"
+        },
+        "vector": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "The embedding vector"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Chunk-specific metadata",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Title of the source page"
+            },
+            "tokens": {
+              "type": "integer",
+              "description": "Number of tokens in the chunk"
+            },
+            "language": {
+              "type": "string",
+              "description": "Language of the chunk (ISO 639-1)"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Relevant tags or categories"
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When this specific content was captured"
+            }
+          }
+        }
+      }
+    },
+    "fileReference": {
+      "type": "object",
+      "required": ["url", "file", "chunks"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Source URL for chunks in this file"
+        },
+        "file": {
+          "type": "string",
+          "description": "Relative path to the chunk file"
+        },
+        "chunks": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of chunks in this file"
+        }
+      }
+    }
+  }
+}
