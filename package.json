@@ -1,0 +1,29 @@
+{
+  "name": "vac-vector-access-protocol",
+  "version": "0.1.0",
+  "description": "VAC (Vector Access Protocol) - An Open Standard for Making Websites Understandable to AI",
+  "author": "Giuseppe Marci",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giusmarci/vac-vector-access-protocol.git"
+  },
+  "bugs": {
+    "url": "https://github.com/giusmarci/vac-vector-access-protocol/issues"
+  },
+  "homepage": "https://github.com/giusmarci/vac-vector-access-protocol#readme",
+  "keywords": [
+    "vac",
+    "vector-access-protocol",
+    "vectors",
+    "embeddings",
+    "ai",
+    "semantic-web",
+    "llm",
+    "well-known",
+    "ai-readable"
+  ],
+  "workspaces": [
+    "cli"
+  ]
+}

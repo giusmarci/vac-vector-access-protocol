@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.pnpm-debug.log*
+
+# Output directories
+exports/
+public/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Build
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Old backup
+OLD/

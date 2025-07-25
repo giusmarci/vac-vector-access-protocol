@@ -1,0 +1,30 @@
+{
+  "version": "0.1",
+  "site": "https://advanced-example.com",
+  "model": "text-embedding-ada-002",
+  "updatedAt": "2025-07-25T12:00:00Z",
+  "chunked": true,
+  "files": [
+    {
+      "url": "https://advanced-example.com",
+      "file": "/vectors/home.json",
+      "chunks": 15
+    },
+    {
+      "url": "https://advanced-example.com/products",
+      "file": "/vectors/products.json",
+      "chunks": 42
+    },
+    {
+      "url": "https://advanced-example.com/docs",
+      "file": "/vectors/docs.json",
+      "chunks": 89
+    }
+  ],
+  "metadata": {
+    "totalChunks": 146,
+    "dimension": 1536,
+    "language": "en",
+    "lastCrawled": "2025-07-25T11:00:00Z"
+  }
+}

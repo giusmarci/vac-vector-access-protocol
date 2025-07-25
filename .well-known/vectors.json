@@ -1,0 +1,29 @@
+{
+  "version": "0.1",
+  "site": "https://example.com",
+  "model": "nomic-embed-text",
+  "updatedAt": "2025-07-25T12:00:00Z",
+  "totalChunks": 2,
+  "chunks": [
+    {
+      "id": "example-1",
+      "url": "https://example.com",
+      "content": "This is an example of VAC (Vector Access Protocol) in action",
+      "vector": [0.123, -0.456, 0.789],
+      "metadata": {
+        "title": "Example VAC Implementation",
+        "tokens": 12
+      }
+    },
+    {
+      "id": "example-2", 
+      "url": "https://example.com/about",
+      "content": "VAC enables websites to be understood by AI through semantic embeddings",
+      "vector": [0.321, -0.654, 0.987],
+      "metadata": {
+        "title": "About VAC",
+        "tokens": 10
+      }
+    }
+  ]
+}

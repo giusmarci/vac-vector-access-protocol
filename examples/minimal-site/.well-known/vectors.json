@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "site": "https://minimal-example.com",
+  "model": "nomic-embed-text",
+  "updatedAt": "2025-07-25T12:00:00Z",
+  "chunks": [
+    {
+      "url": "https://minimal-example.com",
+      "content": "Welcome to our minimal site demonstrating VAC",
+      "vector": [0.1, 0.2, 0.3, 0.4, 0.5]
+    }
+  ]
+}
