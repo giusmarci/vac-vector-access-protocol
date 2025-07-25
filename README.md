@@ -1,3 +1,5 @@
+![VAC Banner](VAC%20BANNER.png)
+
 # VAC: Vector Access Protocol
 
 ## An Open Standard for Making Websites Understandable to AI
